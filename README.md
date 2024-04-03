@@ -13,7 +13,7 @@ shopping cart.
 Getting started
 Follow the steps below to get started with the project:
 
-    Clone the project to your local machine.
+    Clone the project to your local machine. https://github.com/SophiaKornilia/TheCheckoutSession 
     Install all necessary dependencies by running npm install.
     Start the server by running nodemon server if you have nodemon installed.
     Start the React application by running npm run dev.
