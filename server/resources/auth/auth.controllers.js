@@ -1,9 +1,11 @@
 const fetchUsers = require('../../utils/fetchUsers')
 const bcrypt = require('bcrypt')
 const fs = require('fs').promises
-const stripe = require('stripe')(process.env.STRIPE_KEY);
+require('dotenv').config(); 
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const register = async (req, res) => {
+    
   
     //här ska jag kunna registrera en ny användare.
   
@@ -23,11 +25,11 @@ const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10 )
 
     //  skapa användare i Stripe
-      const customer = await stripe.customer.create({
-        name: "namn",
-        email:"email"
+      const customer = await stripe.customers.create({
+        name: name,
+        email: email
     })
-    
+
     //skapa i stripe först och spara ner kundid. 
 
     //spara till databasen

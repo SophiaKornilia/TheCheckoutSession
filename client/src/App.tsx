@@ -22,8 +22,6 @@ function App() {
   };
 
   const handleClick = async () => {
-    console.log("clicked");
-
     if (newName === "" || newEmail === "" || newPassword === "") {
       console.log("Fyll i alla fält innan du registrerar.");
       return;
@@ -43,9 +41,20 @@ function App() {
 
       if (response.ok) {
         console.log("Användare registrerad");
+        //tömmer staten
         setNewEmail("");
         setNewPassword("");
         setNewName("");
+
+        //tömmer inputvaluet
+        const nameInput = document.getElementById("name") as HTMLInputElement
+        const emailInput = document.getElementById("email") as HTMLInputElement
+        const passwordInput = document.getElementById("password") as HTMLInputElement
+
+        if (nameInput) nameInput.value = "";
+        if (emailInput) emailInput.value = "";
+        if (passwordInput) passwordInput.value = "";
+
       } else {
         console.log("Registreringen misslyckades");
       }
@@ -75,7 +84,7 @@ function App() {
           onChange={handelInputChangePassword}
         />
         <br />
-        <button onClick={handleClick}>Register</button>
+        <button id="registerBtn" onClick={handleClick}>Register</button>
       </div>
     </>
   );
