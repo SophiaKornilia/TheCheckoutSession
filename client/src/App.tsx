@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [newEmail, setNewEmail] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [newName, setNewName] = useState<string>("");
+
+  const handelInputChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewName(e.target.value);
+  };
+
+  const handelInputChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewEmail(e.target.value);
+  };
+
+  const handelInputChangePassword = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setNewPassword(e.target.value);
+  };
+
+  const handleClick = async () => {
+    console.log("clicked");
+
+    if (newName === "" || newEmail === "" || newPassword === "") {
+      console.log("Fyll i alla fält innan du registrerar.");
+      return;
+    }
+    try {
+      const response = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: newName,
+          email: newEmail,
+          password: newPassword,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Användare registrerad");
+        setNewEmail("");
+        setNewPassword("");
+        setNewName("");
+      } else {
+        console.log("Registreringen misslyckades");
+      }
+    } catch (error) {
+      console.error("Något gick fel:", error);
+    }
+  };
+
+  console.log(newEmail);
+  console.log(newPassword);
+  console.log(newName);
 
   return (
     <>
+      <h2>Register</h2>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <label htmlFor="name">Name</label>
+        <input id="name" type="text" onChange={handelInputChangeName} />
+        <br />
+        <label htmlFor="email">Email</label>
+        <input id="email" type="email" onChange={handelInputChangeEmail} />
+        <br />
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          onChange={handelInputChangePassword}
+        />
+        <br />
+        <button onClick={handleClick}>Register</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
