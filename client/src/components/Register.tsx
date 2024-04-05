@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./App.css";
+import "../App.css";
 
 
-function App() {
+function Register() {
   const [newEmail, setNewEmail] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [newName, setNewName] = useState<string>("");
@@ -63,9 +63,9 @@ function App() {
     }
   };
 
-  console.log(newEmail);
-  console.log(newPassword);
-  console.log(newName);
+  // console.log(newEmail);
+  // console.log(newPassword);
+  // console.log(newName);
 
   return (
     <>
@@ -90,4 +90,4 @@ function App() {
   );
 }
 
-export default App;
+export default Register;

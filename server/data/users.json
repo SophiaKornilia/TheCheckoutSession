@@ -53,5 +53,15 @@
     "name": "16",
     "email": "16@gmail.com",
     "password": "$2b$10$9mXp10GHEzXRJL4PxhxJdOhlT1yzyNrqqCpfPk6u3hvou243EBGoG"
+  },
+  {
+    "name": "Koko",
+    "email": "Koko@gmail.com",
+    "password": "$2b$10$pnNKsjYHFLsswI0tkj7jn.66Pe4Ai8n/IYESU9NjFS6XpDZpEjDPe"
+  },
+  {
+    "name": "Andrea",
+    "email": "andrea@gmail.com",
+    "password": "$2b$10$BoAiQXeu1VBaZtjl8iNfQumjKPqWFjMh6AbKlpgJOn0oIUeaCAFO2"
   }
 ]

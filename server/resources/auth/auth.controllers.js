@@ -47,7 +47,35 @@ const register = async (req, res) => {
     //skicka tillbaka ett svar
     res.status(201).json({newUser})
     console.log(newUser);
-
 }
 
-module.exports = {register}
+const login = async (req, res) => {
+    //kolla med joi
+
+    //kolla så att användarn finns 
+    const {email, password} = req.body
+
+    const users = await fetchUsers()
+    const userExists = users.find(u => u.email === email)
+
+    //kolla så att lösenordet stämmer och användaren finns
+    if(!userExists || ! await bcrypt.compare(password, userExists.password)) {
+        return res.status(400).json("Wrong user or password")
+    }
+
+    //skapa en session, lösenordet matchar och användaren finns. 
+    req.session.user = userExists
+
+    //skicka tillbaka ett svar
+    res.status(200).json(`Du är inloggad med mail ${userExists.email}`)
+}
+
+//här kollar vi om det finns en user i session vilket betyder att någon är inloggad. 
+const isLoggedIn = (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ message: "Not authenticated" });
+    }
+    res.status(200).json({ message: "Authenticated" });
+}
+
+module.exports = {register, login, isLoggedIn, isLoggedIn}
