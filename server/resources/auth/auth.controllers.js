@@ -1,8 +1,11 @@
+const { query, response } = require('express');
 const fetchUsers = require('../../utils/fetchUsers')
 const bcrypt = require('bcrypt')
 const fs = require('fs').promises
 require('dotenv').config(); 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+
 
 const register = async (req, res) => {
     
@@ -27,16 +30,21 @@ const register = async (req, res) => {
     //  skapa användare i Stripe
       const customer = await stripe.customers.create({
         name: name,
-        email: email
+        email: email.toLowerCase()
     })
-
+    .then(response => {
+        customerId = response.id
+        console.log(customerId);
+    })
     //skapa i stripe först och spara ner kundid. 
 
+   
     //spara till databasen
     const newUser = {
         name,
         email, 
-        password: hashedPassword
+        password: hashedPassword,
+        customerId: customerId
     }
     
     users.push(newUser); 
@@ -66,16 +74,24 @@ const login = async (req, res) => {
     //skapa en session, lösenordet matchar och användaren finns. 
     req.session.user = userExists
 
+
     //skicka tillbaka ett svar
     res.status(200).json(`Du är inloggad med mail ${userExists.email}`)
 }
 
 //här kollar vi om det finns en user i session vilket betyder att någon är inloggad. 
+
 const isLoggedIn = (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ message: "Not authenticated" });
     }
-    res.status(200).json({ message: "Authenticated" });
+    res.status(200).json(req.session.user.email, req.session.user.customerId)
+  
 }
 
-module.exports = {register, login, isLoggedIn, isLoggedIn}
+const logout = (req, res) => {
+    req.session = null
+    res.status(200).json("Successfully logged out")
+}
+
+module.exports = {register, login, isLoggedIn, isLoggedIn, logout}

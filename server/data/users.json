@@ -1,67 +1,14 @@
 [
   {
-    "name": "fredde",
-    "email": "feddan2@gmail.com",
-    "password": "$2b$10$RSzcpdc/jozKIPeQSBC.X.ZhEjKSc0jF71iu71pYVzNqFuLrAUoDi"
+    "name": "stella",
+    "email": "stella@gmail.com",
+    "password": "$2b$10$HIJUloqpqPMbOq.sYeVgLe1ApxVvc1sV0nXDqpup8qtT5xb9cBRfa",
+    "customerId": "cus_Pt0kakCCL9UYy6"
   },
   {
-    "name": "5",
-    "email": "54@gmail.com",
-    "password": "$2b$10$.qXtsFzpWbniBRXYwWV5RuCim26ezt.zLriXoNB/EFvNs2fdEtre6"
-  },
-  {
-    "name": "8",
-    "email": "8@gmail.com",
-    "password": "$2b$10$7DQJrWIlU3p6PpKhrluJT.D5igFaAlfmfDKI3Diq9Cuj1Ye1KatwW"
-  },
-  {
-    "name": "9",
-    "email": "9@gmail.com",
-    "password": "$2b$10$5Zcb5Bwg5B7mIgcLJWtFXe6z/sAjSWtl9gWIB4uwbCeQbsLYBgQoS"
-  },
-  {
-    "name": "10",
-    "email": "10@gmail.com",
-    "password": "$2b$10$Yo5FFLEkJC1WBkKDwtbpAuMP.3.DmC3qywBeF4oeZYoL6IOV3ovUO"
-  },
-  {
-    "name": "11",
-    "email": "11@GMAIL.COM",
-    "password": "$2b$10$J3L0.9fg69gA3i.Za/qO4eHNLaW58AEBtIaPTdRBsYvdh01KLln5G"
-  },
-  {
-    "name": "12",
-    "email": "12@gmail.com",
-    "password": "$2b$10$fAtQOiZhSRj3iaEkSmMEuugnAqkJoTPmnSWslygbk1bKM5UX97o4."
-  },
-  {
-    "name": "13",
-    "email": "13@gmail.com",
-    "password": "$2b$10$QLQoqmoPUUTfpDpd7EwkSenadEtgcEYluR30ienWELxrJiZgbTMVC"
-  },
-  {
-    "name": "14",
-    "email": "14@gmail.com",
-    "password": "$2b$10$lQj1X2lpcOQ4./lYNsWQsugR4PpjOFOJQK.sW9oGmaSfL5.WPaZGC"
-  },
-  {
-    "name": "15",
-    "email": "15@gmail.com",
-    "password": "$2b$10$.7Cl1sZXGNXknj4ibUbQQOVMbQnll8lT2TGjiymHqS5KIWYKjJqxm"
-  },
-  {
-    "name": "16",
-    "email": "16@gmail.com",
-    "password": "$2b$10$9mXp10GHEzXRJL4PxhxJdOhlT1yzyNrqqCpfPk6u3hvou243EBGoG"
-  },
-  {
-    "name": "Koko",
-    "email": "Koko@gmail.com",
-    "password": "$2b$10$pnNKsjYHFLsswI0tkj7jn.66Pe4Ai8n/IYESU9NjFS6XpDZpEjDPe"
-  },
-  {
-    "name": "Andrea",
-    "email": "andrea@gmail.com",
-    "password": "$2b$10$BoAiQXeu1VBaZtjl8iNfQumjKPqWFjMh6AbKlpgJOn0oIUeaCAFO2"
+    "name": "stella1",
+    "email": "stella1@gmail.com",
+    "password": "$2b$10$DpxBcjpChDr0hl/kjXm21O1QBTXHkBcL9SpT.MKNDaO9vz9yOdc6q",
+    "customerId": "cus_Pt0nfaljy4zzSH"
   }
 ]

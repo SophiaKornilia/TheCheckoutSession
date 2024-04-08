@@ -1,3 +1,10 @@
+header {
+  height: 15dvh;
+}
+
+main {
+  height: 75dvh;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa; /* Ljusgrå bakgrund */
@@ -6,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .container {
@@ -48,7 +55,7 @@ input {
 }
 
 #registerBtn:hover {
-  background-color: #45a049; 
+  background-color: #45a049;
 }
 
 .product-container {
@@ -59,10 +66,38 @@ input {
 
 .product-card {
   width: 30%;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .product-image {
-  width: 100%; 
-  height: auto; 
+  width: 100%;
+  height: auto;
+}
+
+nav {
+  background-color: #006400; /* Mörkgrön färg */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end; /* Länkar till höger */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display:flex; 
+}
+
+li {
+  margin-left: 20px; /* Marginal till vänster för att separera länkar */
+}
+
+NavLink {
+  text-decoration: none;
+  color: #000; /* Svart textfärg för länkar */
+  font-weight: bold;
+}
+
+NavLink:hover {
+  color: #ccc; /* Färg när länken hover */
 }

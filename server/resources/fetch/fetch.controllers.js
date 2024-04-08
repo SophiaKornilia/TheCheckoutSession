@@ -4,9 +4,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const getProducts = async (req, res) => {
     try {
         const products = await stripe.products.list({
-            limit: 5,
             expand: ['data.default_price']
         });
+        //res.status(200).json(products.data) - ska testa denna raden istället för den under
         res.json(products.data); 
         // console.log(products.data);
     } catch (err) {

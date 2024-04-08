@@ -14,7 +14,8 @@ interface Product {
 
 export const ShowProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
-
+  const [myCart, setMyCart] = useState<Product[]>([]); 
+ 
 
   useEffect(() => {
     fetch("http://localhost:3000/fetch/getProducts")
@@ -25,20 +26,30 @@ export const ShowProducts = () => {
       .catch((error) => console.error("Error fetching products", error));
   }, []);
 
-  const handleClick = () => {
-    fetch("http://localhost:3000/auth/isLoggedIn")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.message === "Authenticated") {
-          console.log("Inloggad");
-        } else {
-          alert("You must log in to make a purchase");
-        }
-      })
-      .catch((error) => {
-        console.error("Error checking auth status", error);
-      });      
+  const handleClick = (product: Product) => {
+    //Hur gör jag för att kolla inloggning? 
+    // fetch("http://localhost:3000/auth/isLoggedIn")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.message === "Authenticated") {
+    //       console.log("Inloggad");
+    //     } else {
+    //       alert("You must log in to make a purchase");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error checking auth status", error);
+    //   });    
+
+    //Skapar en ny array som jag lägger in objekten jag klickat på.
+    const myNewCart = [...myCart, product]
+    setMyCart(myNewCart)     
   };
+
+  myCart.map((cartProduct) => {
+    console.log("idem",cartProduct.id);
+  })
+  
 
   return (
     <div className="product-container">
@@ -54,7 +65,7 @@ export const ShowProducts = () => {
               src={product.images}
               alt={product.name}
             />
-            <button onClick={handleClick}>Add to cart</button>
+            <button onClick={() => handleClick(product)}>Add to cart</button>
           </div>
         ) : null
       )}
