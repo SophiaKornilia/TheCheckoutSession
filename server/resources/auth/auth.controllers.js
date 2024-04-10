@@ -32,11 +32,7 @@ const register = async (req, res) => {
         name: name,
         email: email.toLowerCase()
     })
-    // .then(response => {
-    //     customerId = response.id
-    //     console.log(customerId);
-    // })
-
+    
     //skapa i stripe först och spara ner kundid. 
 
    
