@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const [user, setUser] = useState<string>("");
+  const navigate = useNavigate();
+  const [user, setUser] = useState<string>(""); //lyft upp för att den ska veta om vi är inloggade. 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handelInputEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -31,7 +32,8 @@ export const Login = () => {
       const data = await response.json();
       if (response.status === 200) {
         setUser(data);
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
+        navigate('/')
       } else {
         setUser("");
       }
@@ -39,10 +41,7 @@ export const Login = () => {
       console.error("Error logged in", error);
     }
   };
-  console.log(isLoggedIn);
-  if (isLoggedIn === true) {
-    return <Navigate to="/" />;
-  }
+ 
   return (
     <div>
       <h1>{user ? "INLOGGAD" + user : "UTLOGGAD"}</h1> 

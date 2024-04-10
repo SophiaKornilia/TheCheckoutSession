@@ -7,6 +7,7 @@ export const Payment = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", //se till att skicka med cookien till server
         //här ska mina objekt från myCart komma in
         body: JSON.stringify([
           {

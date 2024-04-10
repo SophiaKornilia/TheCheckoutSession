@@ -4,7 +4,7 @@ import { NotFound } from "./components/NotFound";
 import { Home } from "./pages/Home";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
-import { ConfirmedPayment } from "./pages/ConfimedPayment";
+import { ConfirmedPayment } from "./pages/ConfirmedPayment";
 
 
 
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
                 
             },
             {
-                path: "/Confimed",
+                path: "/Confirmed",
                 element: <ConfirmedPayment /> 
                 
             }

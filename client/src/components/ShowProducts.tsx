@@ -18,15 +18,33 @@ export const ShowProducts = () => {
  
 
   useEffect(() => {
-    fetch("http://localhost:3000/fetch/getProducts")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/fetch/getProducts");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
         setProducts(data);
-      })
-      .catch((error) => console.error("Error fetching products", error));
+      } catch (error) {
+        console.error("Error fetching products", error);
+      }
+    };
+      fetchData();
   }, []);
 
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/fetch/getProducts")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setProducts(data);
+  //     })
+  //     .catch((error) => console.error("Error fetching products", error));
+  // }, []);
+
   const handleClick = (product: Product) => {
+
     //Hur gör jag för att kolla inloggning? 
     // fetch("http://localhost:3000/auth/isLoggedIn")
     //   .then((response) => response.json())

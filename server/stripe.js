@@ -1,7 +1,7 @@
 const Stripe = require('stripe')
 
 const initStripe = () => {
-    const apiKey = process.env.STRIPE_KEY;
+    const apiKey = process.env.STRIPE_SECRET_KEY;
     if(!apiKey) return;
 
     return new Stripe(apiKey, {

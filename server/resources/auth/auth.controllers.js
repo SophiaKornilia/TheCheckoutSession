@@ -1,4 +1,4 @@
-const { query, response } = require('express');
+const { response } = require('express');
 const fetchUsers = require('../../utils/fetchUsers')
 const bcrypt = require('bcrypt')
 const fs = require('fs').promises
@@ -32,10 +32,11 @@ const register = async (req, res) => {
         name: name,
         email: email.toLowerCase()
     })
-    .then(response => {
-        customerId = response.id
-        console.log(customerId);
-    })
+    // .then(response => {
+    //     customerId = response.id
+    //     console.log(customerId);
+    // })
+
     //skapa i stripe först och spara ner kundid. 
 
    
@@ -44,7 +45,7 @@ const register = async (req, res) => {
         name,
         email, 
         password: hashedPassword,
-        customerId: customerId
+        customerId: customer.id
     }
     
     users.push(newUser); 
@@ -85,7 +86,7 @@ const isLoggedIn = (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ message: "Not authenticated" });
     }
-    res.status(200).json(req.session.user.email, req.session.user.customerId)
+    res.status(200).json(req.session.user)
   
 }
 
