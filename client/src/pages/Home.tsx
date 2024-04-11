@@ -1,4 +1,4 @@
-import { Payment } from "../components/Payment";
+// import { Payment } from "../components/Payment";
 import { ShowProducts } from "../components/ShowProducts";
 import CartProvider from "../confext/CartContext";
 
@@ -8,8 +8,8 @@ export const Home = () => {
     <div>
       <h1>Webbshop</h1>
       <CartProvider>
-        <Payment />
         <ShowProducts />
+        {/* <Payment /> */}
       </CartProvider>
     </div>
   );

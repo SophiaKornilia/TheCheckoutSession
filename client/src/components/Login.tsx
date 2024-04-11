@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../confext/UserContext";
 
 export const Login = () => {
+  const { user, setUser } = useUser();
   const navigate = useNavigate();
-  const [user, setUser] = useState<string>(""); //ska bli ett context
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handelInputEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -17,44 +17,34 @@ export const Login = () => {
   };
 
   const handleLoginStatus = async () => {
-    if (isLoggedIn === false) {
-      try {
-        const response = await fetch("http://localhost:3000/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        });
-        const data = await response.json();
-        if (response.status === 200) {
-          setUser(data);
-          setIsLoggedIn(true);
-          navigate("/");
-        } else {
-          setUser("");
-        }
-      } catch (error) {
-        console.error("Error logged in", error);
-      }
-    } else {
-      const response = await fetch("http://localhost:3000/api/auth/logout", {
+    try {
+      const response = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         credentials: "include",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
       });
+      const data = await response.json();
       if (response.status === 200) {
+        setUser(data);
+        navigate("/");
+      } else {
+        alert("You must register!")
         setUser("");
-        setIsLoggedIn(false);
       }
+    } catch (error) {
+      console.error("Error logged in", error);
     }
   };
+  console.log(user);
   return (
     <div>
-      <h1>{user ? "INLOGGAD" + user : "UTLOGGAD"}</h1>
+      {/* <h1>{user ? "INLOGGAD" + user : "UTLOGGAD"}</h1> */}
       <label htmlFor="email">Email</label>
       <input id="email" type="email" onChange={handelInputEmail} />
       <br />

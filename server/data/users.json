@@ -1,20 +1,20 @@
 [
   {
-    "name": "stella",
-    "email": "stella@gmail.com",
-    "password": "$2b$10$HIJUloqpqPMbOq.sYeVgLe1ApxVvc1sV0nXDqpup8qtT5xb9cBRfa",
-    "customerId": "cus_Pt0kakCCL9UYy6"
-  },
-  {
-    "name": "stella1",
+    "name": "Stella",
     "email": "stella1@gmail.com",
-    "password": "$2b$10$DpxBcjpChDr0hl/kjXm21O1QBTXHkBcL9SpT.MKNDaO9vz9yOdc6q",
-    "customerId": "cus_Pt0nfaljy4zzSH"
+    "password": "$2b$10$8hh7xLy74UTBZahPgLPP0.pM2YV37XI3Ulgup4QgevgufsLJbnGJu",
+    "customerId": "cus_Pu9NXCXhH8ZfIR"
   },
   {
-    "name": "jennika",
-    "email": "jennika@gmail.com",
-    "password": "$2b$10$1VJ5C.pLlhrmqGn0o9MGC.r7Rh94SRNQZtXSfiRKKXmA/RLChsThi",
-    "customerId": "cus_Ptki8qE9YftLuK"
+    "name": "Hanna",
+    "email": "hanna@gmail.com",
+    "password": "$2b$10$rdZ.MeuWWLXscCcr9yShlOc1hF1vLzbOsPoO6iT6ahL/q44r.XyYm",
+    "customerId": "cus_Pu9SU25SNwnHkj"
+  },
+  {
+    "name": "1",
+    "email": "1@gmail.com",
+    "password": "$2b$10$KmyncOodpKuTJAVu6BnHk.v/94A6Pm2VnuO80qZuNO7byryrlVFRi",
+    "customerId": "cus_Pu9VUx8Lg8FhRN"
   }
 ]

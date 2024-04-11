@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 
 function Register() {
+  const navigate = useNavigate();
   const [newEmail, setNewEmail] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [newName, setNewName] = useState<string>("");
@@ -45,6 +47,7 @@ function Register() {
         setNewEmail("");
         setNewPassword("");
         setNewName("");
+        navigate("/Login")
 
         //tömmer inputvaluet
         const nameInput = document.getElementById("name") as HTMLInputElement
@@ -56,17 +59,13 @@ function Register() {
         if (passwordInput) passwordInput.value = "";
 
       } else {
+        alert("Registeringen misslyckades")
         console.log("Registreringen misslyckades");
       }
     } catch (error) {
       console.error("Något gick fel:", error);
     }
   };
-
-  // console.log(newEmail);
-  // console.log(newPassword);
-  // console.log(newName);
-
   return (
     <>
       <h2>Register</h2>

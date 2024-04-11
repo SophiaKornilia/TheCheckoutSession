@@ -1,18 +1,19 @@
 import { useCart } from "../confext/CartContext";
+import { useUser } from "../confext/UserContext";
 
 export const Payment = () => {
   const { cart } = useCart();
-
+  const { user } = useUser();
   const handlePayment = async () => {
+    if (!user) {
+      alert("You have to log in to make a purchase");
+      return;
+    }
     if (!cart || cart.length === 0) {
       alert("Your cart is empty!");
       return;
     }
 
-    // if(!req.session){
-    //   alert("Login to continue")
-    //   return; 
-    // }
     const cartItems = cart.map((item) => ({
       product: item.product.default_price.id,
       quantity: item.quantity,
@@ -39,7 +40,7 @@ export const Payment = () => {
 
   return (
     <div>
-      <button onClick={handlePayment}>GE MIG PENGAR!!</button>
+      <button onClick={handlePayment}>Pay</button>
     </div>
   );
 };
