@@ -1,13 +1,11 @@
 import { NavLink } from "react-router-dom";
-import "../App.css";
-import { useUser } from "../confext/UserContext";
+import "../index.css";
+import { useUser } from "../context/UserContext";
 import { Logout } from "./Logout";
-// import { useCart } from "../confext/CartContext";
 import { Payment } from "./Payment";
 
 export const Navigation = () => {
   const { user } = useUser();
-  // const { cart } = useCart();
   return (
     <>
       <nav>
@@ -26,11 +24,9 @@ export const Navigation = () => {
               </NavLink>
             )}
           </li>
-          {/* {cart.length > 0 && ( */}
           <li>
             <Payment />
           </li>
-          {/* )} */}
         </ul>
       </nav>
     </>

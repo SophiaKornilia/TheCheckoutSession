@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { IProduct, useCart } from "../confext/CartContext";
-import "../App.css";
+import { IProduct, useCart } from "../context/CartContext";
+import "../index.css";
 
 export const ShowProducts = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
+
+  const {addToCart} = useCart()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,10 +22,6 @@ export const ShowProducts = () => {
     };
     fetchData();
   }, []);
-
-  console.log(products);
-
-  const { addToCart } = useCart();
 
   return (
     <div className="product-container">

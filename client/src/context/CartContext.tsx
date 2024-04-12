@@ -46,11 +46,17 @@ const CartProvider = ({ children }: PropsWithChildren) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
   const addToCart = (product: IProduct) => {
     const clonedCart = [...cart];
+
     const productExists = clonedCart.find(
       (item) => item.product.id === product.id
     );
+
     if (productExists) {
       productExists.quantity++;
       setCart(clonedCart);

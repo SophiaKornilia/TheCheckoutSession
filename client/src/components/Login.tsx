@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../confext/UserContext";
+import { useUser } from "../context/UserContext";
 
 export const Login = () => {
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -34,17 +34,15 @@ export const Login = () => {
         setUser(data);
         navigate("/");
       } else {
-        alert("You must register!")
+        alert("You must register!");
         setUser("");
       }
     } catch (error) {
       console.error("Error logged in", error);
     }
   };
-  console.log(user);
   return (
     <div>
-      {/* <h1>{user ? "INLOGGAD" + user : "UTLOGGAD"}</h1> */}
       <label htmlFor="email">Email</label>
       <input id="email" type="email" onChange={handelInputEmail} />
       <br />

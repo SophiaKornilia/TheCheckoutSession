@@ -1,8 +1,7 @@
-import { useUser } from "../confext/UserContext";
-
+import { useUser } from "../context/UserContext";
 
 export const Logout = () => {
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   const handleLogout = async () => {
     const response = await fetch("http://localhost:3000/auth/logout", {
       method: "POST",
@@ -10,9 +9,8 @@ export const Logout = () => {
     });
     if (response.status === 200) {
       setUser("");
-      localStorage.clear(); 
+      localStorage.clear();
     }
-    console.log(user);
   };
-return <button onClick={handleLogout}>Logout</button>
-}
+  return <button onClick={handleLogout}>Logout</button>;
+};

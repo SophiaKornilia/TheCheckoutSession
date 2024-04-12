@@ -1,16 +1,16 @@
-import { useCart } from "../confext/CartContext";
-import { useUser } from "../confext/UserContext";
+import { useCart } from "../context/CartContext";
+import { useUser } from "../context/UserContext";
 
 export const Payment = () => {
   const { cart } = useCart();
   const { user } = useUser();
+
   const handlePayment = async () => {
+    console.log("payment", cart);
+    console.log(user);
+
     if (!user) {
       alert("You have to log in to make a purchase");
-      return;
-    }
-    if (!cart || cart.length === 0) {
-      alert("Your cart is empty!");
       return;
     }
 
@@ -35,7 +35,6 @@ export const Payment = () => {
     const data = await response.json();
     localStorage.setItem("sessionId", JSON.stringify(data.sessionId));
     window.location = data.url;
-    // console.log(data);
   };
 
   return (

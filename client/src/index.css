@@ -66,3 +66,107 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+header {
+  height: 15dvh;
+}
+
+main {
+  height: 75dvh;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.container {
+  background-color: #f1f1f1; 
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 350px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#registerBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #144b72;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#registerBtn:hover {
+  background-color: #45a049;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-card {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+nav {
+  background-color: #006400;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end; 
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display:flex; 
+}
+
+li {
+  margin-left: 20px;
+}
+
+NavLink {
+  text-decoration: none;
+  color: #000; 
+  font-weight: bold;
+}
+
+NavLink:hover {
+  color: #ccc; 
+}

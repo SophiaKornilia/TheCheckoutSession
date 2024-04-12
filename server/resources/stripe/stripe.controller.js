@@ -4,14 +4,15 @@ const fs = require('fs').promises
 
 
 const createCheckoutSession = async (req, res) => {
+    const cart = req.body 
 
-    const cart = req.body
+    console.log(cart);
 
     const stripe = initStripe()
 
     const lineItems = cart.map(item => ({
         price: item.product,
-        quantity: item.quantity
+        quantity: item.quantity,
     }))
 
     const session = await stripe.checkout.sessions.create({
@@ -23,7 +24,6 @@ const createCheckoutSession = async (req, res) => {
     })
 
     res.status(200).json({url:session.url, sessionId: session.id})
-
 }
 
 const verifySession = async (req, res) => {
