@@ -18,7 +18,6 @@ app.use(cookieSession({
     secret: "s3cr3tk3y",
     //kan använda expiers eller maxAge
     maxAge: 1000 * 60 * 60, //1h 1000 millisekunder 60 blir 1min * 60 blir 1h.
-    // httpOnly: true, //cookien får bara skickas via http protokollet, är true by default så behövs inte.
 }))
 
 //routes

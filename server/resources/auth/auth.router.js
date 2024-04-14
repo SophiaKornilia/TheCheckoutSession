@@ -10,4 +10,3 @@ router.post("/logout", logout)
 
 module.exports = router
 
-//jag kan använda middleware loggedIn här, ta bort om de inte behövs

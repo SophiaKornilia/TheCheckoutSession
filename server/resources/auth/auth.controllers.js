@@ -55,7 +55,7 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    //kolla med joi
+
 
     //kolla så att användarn finns 
     const {email, password} = req.body

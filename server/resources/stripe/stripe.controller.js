@@ -1,4 +1,3 @@
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const initStripe = require('../../stripe')
 const fs = require('fs').promises
 
@@ -33,12 +32,10 @@ const verifySession = async (req, res) => {
 
     const session = await stripe.checkout.sessions.retrieve(sessionId)
 
-    //om det inte är betalt så skicka verified false och gå inte vidare
     if(session.payment_status === "paid") {
         const lineItems = await stripe.checkout.sessions.listLineItems(sessionId)
 
         const order = {
-            //vi får ordna ordernumer själva - jag har gjort som Freddan
             orderNumber: Math.floor(Math.random() * 10000),
             customerName: session.customer_details.name,
             products: lineItems.data,
